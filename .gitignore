@@ -1,4 +1,5 @@
-Kotlin/.idea
-Kotlin/target
-Javascript/node_modules
-Javascript/.nyc_output
+kotlin/.idea
+kotlin/target
+js/node_modules
+js/.nyc_output
+js/.idea
