@@ -1,0 +1,4 @@
+interface ExampleColaborator {
+    fun doStuff()
+
+}
