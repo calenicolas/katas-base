@@ -9,4 +9,4 @@ NPM como gestor de dependencias
 Comandos
 - npm test : Corre los tests
 - npm coverage : Corre los tests y genera un reporte de covertura
-- npm 
+- npm mutation : Corre las pruebas de mutacion de codigo
