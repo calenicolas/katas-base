@@ -1,0 +1,23 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc npm run test",
+    "mutation": "npx stryker run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@stryker-mutator/core": "^2.5.0",
+    "@stryker-mutator/html-reporter": "^2.5.0",
+    "@stryker-mutator/javascript-mutator": "^2.5.0",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
+    "should": "^13.2.3",
+    "sinon": "^9.0.1"
+  }
+}
