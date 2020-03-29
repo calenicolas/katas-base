@@ -34,4 +34,14 @@ describe("La fabrica de elecciones", () => {
 
         should(tijera).be.eql(new Papel(nombre));
     });
+
+    it("deberia devolvernos una papel si le paso un texto=papel", () => {
+        const texto = "papel";
+        const nombre = "Jorge";
+        const fabrica = new FabricaDeElecciones();
+
+        const tijera = fabrica.crear(texto, nombre);
+
+        should(tijera).be.eql(new Papel(nombre));
+    });
 });

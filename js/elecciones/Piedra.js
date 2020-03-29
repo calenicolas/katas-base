@@ -3,12 +3,12 @@ class Piedra {
         this.nombre = nombre;
     }
 
-    juegaContra(eleccion) {
-        return eleccion.juegaContraPiedra(this.nombre);
+    juegaContra(eleccion, partida) {
+        return eleccion.juegaContraPiedra(this.nombre, partida);
     }
 
-    juegaContraPiedra() {
-        return "empate";
+    juegaContraPiedra(otroNombre, partida) {
+        partida.empate();
     }
 }
 

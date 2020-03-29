@@ -3,20 +3,20 @@ class Tijera {
         this.nombre = nombre;
     }
 
-    juegaContra(eleccion) {
-        return eleccion.juegaContraTijera(this.nombre);
+    juegaContra(eleccion, partida) {
+        return eleccion.juegaContraTijera(this.nombre, partida);
     }
 
-    juegaContraPiedra(otroNombre) {
-        return otroNombre;
+    juegaContraPiedra(otroNombre, partida) {
+        return partida.gana(otroNombre);
     }
 
     juegaContraPapel() {
         return this.nombre;
     }
 
-    juegaContraTijera() {
-        return "empate";
+    juegaContraTijera(otroNombre, partida) {
+        partida.empate();
     }
 }
 

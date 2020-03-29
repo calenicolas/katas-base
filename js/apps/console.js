@@ -1,5 +1,6 @@
 const readline = require('readline');
 const FabricaDeElecciones = require("../elecciones/Fabrica");
+const PartidaEnConsola = require("./PartidaEnConsola");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -31,8 +32,6 @@ makeQuestion('Jugador uno: ')
         const uno = fabricaDeElecciones.crear(eleccionUno, jugadorUno);
         const dos = fabricaDeElecciones.crear(eleccionDos, jugadorDos);
 
-        const ganador = uno.juegaContra(dos);
-
-        console.log("El ganador es " + ganador);
+        uno.juegaContra(dos, new PartidaEnConsola());
     })
     .finally(() => rl.close());
