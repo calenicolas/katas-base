@@ -1,10 +1,14 @@
 class Papel {
-    juegaContraPiedra(piedra) {
-        return this;
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    juegaContraPiedra() {
+        return this.nombre;
     }
 
     juegaContra(eleccion){
-        return eleccion
+        return eleccion.juegaContraPapel(this.nombre);
     }
 }
 

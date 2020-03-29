@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm run test",
-    "mutation": "npx stryker run"
+    "mutation": "npx stryker run",
+    "start": "node apps/console"
   },
   "author": "",
   "license": "ISC",

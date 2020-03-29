@@ -1,59 +1,71 @@
 const should = require("should");
+const sinon = require("sinon");
+
 const Tijera = require("../elecciones/Tijera");
 const Piedra = require("../elecciones/Piedra");
 const Papel = require("../elecciones/Papel");
 
 describe("example", () => {
-
-  it("should be an example", () => {
-    should(1).be.eql(1);
-  });
-
-  it.only("piedra le gana a tijera", () => {
+  it("piedra le gana a tijera", () => {
     // Given
-    const tijera = new Tijera();
-    const piedra = new Piedra();
+    const tijera = new Tijera("gaston");
+    const piedra = new Piedra("patricio");
 
     // When
     const ganador = piedra.juegaContra(tijera);
 
     // Then
-    should(ganador).be.eql(piedra);
+    should(ganador).be.eql("patricio");
   });
 
-  it.only("piedra pierde contra papel", () => {
+  it("piedra pierde contra papel", () => {
     // Given
-    const papel = new Papel();
-    const piedra = new Piedra();
+    const papel = new Papel("marian");
+    const piedra = new Piedra("gallo");
 
     // When
     const ganador = piedra.juegaContra(papel);
 
     // Then
-    should(ganador).be.eql(papel);
+    should(ganador).be.eql("marian");
   });
 
-  it.only("papel pierde contra tijera", () => {
+  it("papel pierde contra tijera", () => {
     // Given
-    const papel = new Papel();
-    const tijera = new Tijera();
+    const papel = new Papel("fede bravo");
+    const tijera = new Tijera("gigio");
 
     // When
     const ganador = papel.juegaContra(tijera);
 
     // Then
-    should(ganador).be.eql(tijera);
+    should(ganador).be.eql("gigio");
   });
 
-  it("dos jugadores pueden jugar", () => {
+  it("la tijera empata con la tijera", () => {
     // Given
-    const playerOne = new Player();
-    const playerTwo = new Player();
+    const tijeraUno = new Tijera("pato");
+    const tijera = new Tijera("feijo");
+    const partida = {
+      empate: sinon.stub()
+    };
 
     // When
-    const play = playerOne.playsAgainst(playerTwo);
+    tijera.juegaContra(tijeraUno, partida);
 
     // Then
-    should(play).be.eql(true);
+    should(partida.empate.callCount).be.eql(1);
+  });
+
+  it("la piedra empata con la piedra", () => {
+    // Given
+    const piedra = new Piedra("pato");
+    const piedraDos = new Piedra("feijo");
+
+    // When
+    const empate = piedra.juegaContra(piedraDos);
+
+    // Then
+    should(empate).be.eql("empate");
   });
 });

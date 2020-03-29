@@ -1,6 +1,22 @@
 class Tijera {
-    juegaContraPiedra(piedra) {
-        return piedra;
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    juegaContra(eleccion) {
+        return eleccion.juegaContraTijera(this.nombre);
+    }
+
+    juegaContraPiedra(otroNombre) {
+        return otroNombre;
+    }
+
+    juegaContraPapel() {
+        return this.nombre;
+    }
+
+    juegaContraTijera() {
+        return "empate";
     }
 }
 
