@@ -6,7 +6,7 @@ const Piedra = require("../elecciones/Piedra");
 const Papel = require("../elecciones/Papel");
 const EleccionInvalida = require("../elecciones/EleccionInvalida");
 
-describe("example", () => {
+describe("En las elecciones", () => {
   it("piedra le gana a tijera", () => {
     // Given
     const tijera = new Tijera("gaston");
