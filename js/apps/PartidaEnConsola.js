@@ -6,6 +6,10 @@ class PartidaEnConsola {
     empate(){
         console.log("empate");
     }
+
+    pierden(){
+        console.log("forros");
+    }
 }
 
 module.exports = PartidaEnConsola;

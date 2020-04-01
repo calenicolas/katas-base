@@ -10,6 +10,18 @@ class Piedra {
     juegaContraPiedra(otroNombre, partida) {
         partida.empate();
     }
+
+    juegaContraPapel(otroNombre, partida) {
+        partida.gana(otroNombre);
+    }
+
+    juegaContraTijera(otroNombre, partida) {
+        partida.gana(this.nombre);
+    }
+
+    juegaContraEleccionInvalida(partida) {
+        partida.gana(this.nombre);
+    }
 }
 
 module.exports = Piedra;

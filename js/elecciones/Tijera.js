@@ -8,15 +8,19 @@ class Tijera {
     }
 
     juegaContraPiedra(otroNombre, partida) {
-        return partida.gana(otroNombre);
+        partida.gana(otroNombre);
     }
 
-    juegaContraPapel() {
-        return this.nombre;
+    juegaContraPapel(otroNombre, partida) {
+        return partida.gana(this.nombre);
     }
 
     juegaContraTijera(otroNombre, partida) {
         partida.empate();
+    }
+
+    juegaContraEleccionInvalida(partida) {
+        partida.gana(this.nombre);
     }
 }
 

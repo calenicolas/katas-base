@@ -4,11 +4,19 @@ class Papel {
     }
 
     juegaContraPiedra(otroNombre, partida) {
-        return partida.gana(this.nombre);
+        partida.gana(this.nombre);
+    }
+
+    juegaContraTijera(otroNombre, partida) {
+        partida.gana(otroNombre);
     }
 
     juegaContra(eleccion, partida){
-        return eleccion.juegaContraPapel(this.nombre, partida);
+        eleccion.juegaContraPapel(this.nombre, partida);
+    }
+
+    juegaContraEleccionInvalida(partida) {
+        partida.gana(this.nombre);
     }
 }
 

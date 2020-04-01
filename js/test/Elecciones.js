@@ -17,10 +17,13 @@ describe("En las elecciones", () => {
 
     // When
     piedra.juegaContra(tijera, partida);
+    tijera.juegaContra(piedra, partida);
 
     // Then
     should(
-      partida.gana.calledWith("patricio")
+      partida.gana
+        .withArgs("patricio")
+        .calledTwice
     ).be.true();
   });
 
@@ -34,9 +37,14 @@ describe("En las elecciones", () => {
 
     // When
     piedra.juegaContra(papel, partida);
+    papel.juegaContra(piedra, partida);
 
     // Then
-    should(partida.gana.calledWith("marian")).be.true();
+    should(
+      partida.gana
+        .withArgs("marian")
+        .calledTwice
+    ).be.true();
   });
 
   it("papel pierde contra tijera", () => {
@@ -48,10 +56,15 @@ describe("En las elecciones", () => {
     };
 
     // When
-    const ganador = papel.juegaContra(tijera, partida);
+    papel.juegaContra(tijera, partida);
+    tijera.juegaContra(papel, partida);
 
     // Then
-    should(ganador).be.eql("gigio");
+    should(
+      partida.gana
+        .withArgs("gigio")
+        .calledTwice
+    ).be.true();
   });
 
   it("la tijera empata con la tijera", () => {
@@ -94,9 +107,14 @@ describe("En las elecciones", () => {
 
     // When
     piedra.juegaContra(eleccionInvalida, partida);
+    eleccionInvalida.juegaContra(piedra, partida);
 
     // Then
-    should(partida.gana.calledWith("pato")).be.true();
+    should(
+      partida.gana
+        .withArgs("pato")
+        .calledTwice
+    ).be.true();
   });
 
 
@@ -110,9 +128,14 @@ describe("En las elecciones", () => {
 
     // When
     tijera.juegaContra(eleccionInvalida, partida);
+    eleccionInvalida.juegaContra(tijera, partida);
 
     // Then
-    should(partida.gana.calledWith("pato")).be.true();
+    should(
+      partida.gana
+        .withArgs("pato")
+        .calledTwice
+    ).be.true();
   });
 
   it("eleccion invalida pierde con el papel", () => {
@@ -125,14 +148,19 @@ describe("En las elecciones", () => {
 
     // When
     papel.juegaContra(eleccionInvalida, partida);
+    eleccionInvalida.juegaContra(papel, partida);
 
     // Then
-    should(partida.gana.calledWith("pato")).be.true();
+    should(
+      partida.gana
+        .withArgs("pato")
+        .calledTwice
+    ).be.true();
   });
 
   it("eleccion invalida contra otra invalida pierden los dos", () => {
     // Given
-    const eleccionInvalida = new EleccionInvalida();
+    dadaUnaSeleccionInvalida();
     const eleccionInvalidaDos = new EleccionInvalida();
     const partida = {
       pierden: sinon.stub()
@@ -145,3 +173,8 @@ describe("En las elecciones", () => {
     should(partida.pierden.callCount).be.eql(1);
   });
 });
+
+function dadaUnaSeleccionInvalida() {
+  return new EleccionInvalida();
+}
+

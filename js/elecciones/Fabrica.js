@@ -1,6 +1,7 @@
 const Piedra = require("./Piedra");
 const Tijera = require("./Tijera");
 const Papel = require("./Papel");
+const EleccionInvalida = require("./EleccionInvalida");
 
 class FabricaDeElecciones {
     crear(texto, nombre) {
@@ -10,8 +11,11 @@ class FabricaDeElecciones {
 
         if(texto === "tijera")
             return new Tijera(nombre);
-        else
+        
+        if(texto === "piedra")
             return new Piedra(nombre);
+        else
+            return new EleccionInvalida();
     }
 }
 
