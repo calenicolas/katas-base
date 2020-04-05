@@ -160,7 +160,7 @@ describe("En las elecciones", () => {
 
   it("eleccion invalida contra otra invalida pierden los dos", () => {
     // Given
-    dadaUnaSeleccionInvalida();
+    const eleccionInvalida = new EleccionInvalida();
     const eleccionInvalidaDos = new EleccionInvalida();
     const partida = {
       pierden: sinon.stub()
@@ -173,8 +173,3 @@ describe("En las elecciones", () => {
     should(partida.pierden.callCount).be.eql(1);
   });
 });
-
-function dadaUnaSeleccionInvalida() {
-  return new EleccionInvalida();
-}
-
