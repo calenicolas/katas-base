@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <script src="bundle.js"></script>
+    </head>
+    <body>
+        <form onsubmit="return jugar()">
+            Nombre Jugador uno: <input name="campo_formulario" />
+            <br>
+            Nombre Jugador dos: <input name="campo_formulario" />
+            <br>
+            Eleccion jugador uno: <input name="campo_formulario" />
+            <br>
+            Eleccion jugador dos: <input name="campo_formulario" />
+            <br>
+            <button type="submit">Jugar</button>
+        </form>
+        <script>
+            function jugar() {
+                const Fabrica = require("Fabrica");
+                const PartidaEnWeb = require("PartidaEnWeb");
+                const fabrica = new Fabrica();
+
+                const campos = document.getElementsByName("campo_formulario");
+
+                const nombreJugadorUno = campos[0].value;
+                const nombreJugadorDos = campos[1].value;
+
+                const eleccionJugadorUno = campos[2].value;
+                const eleccionJugadorDos = campos[3].value;
+
+                const eleccionUno = fabrica.crear(eleccionJugadorUno, nombreJugadorUno);
+                const eleccionDos = fabrica.crear(eleccionJugadorDos, nombreJugadorDos);
+
+                eleccionUno.juegaContra(eleccionDos, new PartidaEnWeb());
+                
+                return false;
+            }
+        </script>
+    </body>
+</html> 

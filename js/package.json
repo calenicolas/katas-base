@@ -7,7 +7,8 @@
     "test": "mocha",
     "coverage": "nyc npm run test",
     "mutation": "npx stryker run",
-    "start": "node apps/console"
+    "start-console": "node apps/console",
+    "build-web": "npx browserify -r ./elecciones/Fabrica.js:Fabrica -r ./apps/web/PartidaEnWeb.js:PartidaEnWeb > ./apps/web/bundle.js"
   },
   "author": "",
   "license": "ISC",

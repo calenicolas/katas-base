@@ -1,5 +1,5 @@
 const readline = require('readline');
-const FabricaDeElecciones = require("../elecciones/Fabrica");
+const FabricaDeElecciones = require("../../elecciones/Fabrica");
 const PartidaEnConsola = require("./PartidaEnConsola");
 
 const rl = readline.createInterface({
