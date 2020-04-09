@@ -1,3 +1,5 @@
+const Partida = require("./Partida")
+
 class EntrarALaCola {
     constructor(presentador) {
         this.presentador = presentador;
@@ -5,7 +7,10 @@ class EntrarALaCola {
     
     ejecutadoPor() {
         this.presentador.mostrarMensajeDeEspera();
+        
+        return new Partida(this.presentador);
     }
+
 }
 
 module.exports = EntrarALaCola;
